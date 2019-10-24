@@ -25,7 +25,7 @@ resource "azurerm_public_ip" "project1_rg_pub" {
   location = var.location
   name = "project1_rg_pub"
   resource_group_name = azurerm_resource_group.project1_rg.name
-  public_ip_address_allocation = "dynamic"
+  allocation_method = "Dynamic"
 }
 
 //I create a NIC that I put in my subnet and link the public IP to it and that I'll attach to the VM
@@ -62,7 +62,7 @@ resource "azurerm_virtual_machine" "project1_rg_vm" {
   }
 
   os_profile {
-    admin_username = "admin"
+    admin_username = "badr"
     admin_password = "P@ssword_D3bian"
     computer_name = "debian"
   }
@@ -84,7 +84,6 @@ resource "azurerm_virtual_machine_extension" "project1_rg_vm_ext" {
   virtual_machine_name = azurerm_virtual_machine.project1_rg_vm.name
   settings = <<SETTINGS
     {
-    "script" : "c3VkbyBhcHQtZ2V0IC15IGluc3RhbGwgbmdpbngKY2QgL2V0Yy9uZ2lueC9zaXRlcy1lbmFibGVkCnN1ZG8gc2VkIC1pICdzL2xpc3RlbiA4MCBkZWZhdWx0X3NlcnZlcjsvbGlzdGVuIDgwODAgZGVmYXVsdF9zZXJ2ZXI7L2cnIGRlZmF1bHQKY2QgL3Zhci93d3cvaHRtbApzdWRvIGNob3duIGJhZHIgLgpzdWRvIG12IGluZGV4Lm5naW54LWRlYmlhbi5odG1sIGluZGV4Lmh0bWwub2xkCnN1ZG8gZWNobyAiZnVjayBvZmYgZnJvbSBteSBzaXRlLiBCYWRyIG9uIEF6dXJlIiA+IGluZGV4Lmh0bWwKc3VkbyBzeXN0ZW1jdGwgcmVzdGFydCBuZ2lueAo="
-   }
+    "script" : "c3VkbyBhcHQtZ2V0IC15IGluc3RhbGwgbmdpbngKY2QgL2V0Yy9uZ2lueC9zaXRlcy1lbmFibGVkCnN1ZG8gc2VkIC1pICdzL2xpc3RlbiA4MCBkZWZhdWx0X3NlcnZlcjsvbGlzdGVuIDgwODAgZGVmYXVsdF9zZXJ2ZXI7L2cnIGRlZmF1bHQKY2QgL3Zhci93d3cvaHRtbApzdWRvIG12IGluZGV4Lmh0bWwgaW5kZXguaHRtbC5vbGQKc3VkbyBlY2hvICIKPGgxIHN0eWxlPVwidGV4dC1hbGlnbjogY2VudGVyO1wiPjxzcGFuPkJhZHIgc2F5cyBoZWxsbyBmcm9tIEF6dXJlISZuYnNwOzwvc3Bhbj48L2gxPgo8cD48c3Ryb25nPjxpbWcgc3JjPVwiaHR0cHM6Ly9tZWRpYS5naXBoeS5jb20vbWVkaWEvQ21yMU9NSjJGTjBCMi9naXBoeS5naWZcIiBhbHQ9XCJcIiB3aWR0aD1cIjUwMFwiIGhlaWdodD1cIjUwMFwiIHN0eWxlPVwiZGlzcGxheTogYmxvY2s7IG1hcmdpbi1sZWZ0OiBhdXRvOyBtYXJnaW4tcmlnaHQ6IGF1dG87XCIgLz48L3N0cm9uZz48L3A+CiIgPiBpbmRleC5odG1sCnN1ZG8gc3lzdGVtY3RsIHJlc3RhcnQgbmdpbng="   }
 SETTINGS
 }
