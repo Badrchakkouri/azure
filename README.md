@@ -6,7 +6,8 @@ a custom web page on port 8080.
 
 # Terraform infrastructure as code
 
-The code includes 3 terraform files: 
+The code includes 3 terraform files:
+
 `provider.tf` specifies that terraform has to use Azure as a cloud provider to build the resources via (Azure Resource Manager). I have included comments in the file for more understanding.
 
 `var.tf` contains variables declaration that I will be calling in the code. 
