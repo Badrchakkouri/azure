@@ -54,4 +54,4 @@ and as expected it shows my custom web page!
 One more thing, If I want to remove all the resources from Azure, it as simple as running the command `terraform destroy`
 this will exactly do the opposite of `terraform apply` and remove everything I have built.
 
-![Screenshot](screenshots/capture_azure.png)
+![Screenshot](hello_azure.PNG)
