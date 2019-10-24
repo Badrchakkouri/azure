@@ -7,11 +7,13 @@ a custom web page on port 8080.
 # Terraform infrastructure as code
 
 The code includes 3 terraform files: 
-`provider.tf` specifies that terraform has to use Azure as a cloud provider to build the resources via (Azure Resource Manager). 
-I have included comments in the file for more understanding.
+`provider.tf` specifies that terraform has to use Azure as a cloud provider to build the resources via (Azure Resource Manager). I have included comments in the file for more understanding.
+
 `var.tf` contains variables declaration that I will be calling in the code. 
+
 `resources.tf` is where I declare all the resources terraform should create in Azure when applying the code. Comments are available
 in the code for better understanding.
+
 `output.tf` specifies the value I want to print out after the completion of the build, the public IP of the instance in this case.
 
 # Installing nginx and the custom web page
@@ -32,7 +34,7 @@ First thing to do is to initialize the working directory where terraform code is
 this will enable terraform to prepare the directory as a terraform workspace and get the necessary plugins to talk with the cloud provider, for my case
 the azurerm plugin. 
 
-Next thing is to verify the syntax with `terraform validate`, this is a good step to do in order to check id the code is
+Next thing is to verify the syntax with `terraform validate`, this is a good step to do in order to check if the code is
 well written. Although I am using IntelliJ IDE which has the official terraform plugin from Hashicorp that provides
 auto-complete and performs syntax check, I still use terraform validation as a double check.
 
