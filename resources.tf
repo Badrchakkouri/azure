@@ -43,16 +43,21 @@ resource "azurerm_virtual_machine" "project1_rg_vm" {
   network_interface_ids = [azurerm_network_interface.project1_rg_nic.id]
   resource_group_name   = azurerm_resource_group.project1_rg.name
   vm_size               = "Standard_B1ls"
+
   storage_os_disk {
     create_option = "FromImage"
     name          = "project1_rg_vm_disk"
   }
+
   storage_image_reference {
-    publisher = "Debian"
-    offer     = "Debian-10"
-    sku       = "10"
-    version   = "latest"
+    #publisher = "Debian"
+    #offer     = "Debian-10"
+    #sku       = "10"
+    #version   = "latest"
+    id = "/subscriptions/1e9d1f1f-ec93-45c1-8401-ab1f2364b252/resourceGroups/project1_rg/providers/Microsoft.Compute/images/Debian-tweked-badr"
   }
+
+
 
   os_profile {
     admin_username = "badr"
@@ -65,7 +70,7 @@ resource "azurerm_virtual_machine" "project1_rg_vm" {
 
 }
 
-resource "azurerm_virtual_machine_extension" "project1_rg_vm_ext" {
+/*resource "azurerm_virtual_machine_extension" "project1_rg_vm_ext" {
   location = var.location
   name = "project1_rg_vm_disk_ext"
   publisher = "Microsoft.Azure.Extensions"
@@ -76,6 +81,6 @@ resource "azurerm_virtual_machine_extension" "project1_rg_vm_ext" {
   settings = <<SETTINGS
     {
     "script" : "c3VkbyBhcHQtZ2V0IC15IGluc3RhbGwgbmdpbngKY2QgL2V0Yy9uZ2lueC9zaXRlcy1lbmFibGVkCnN1ZG8gc2VkIC1pICdzL2xpc3RlbiA4MCBkZWZhdWx0X3NlcnZlcjsvbGlzdGVuIDgwODAgZGVmYXVsdF9zZXJ2ZXI7L2cnIGRlZmF1bHQKY2QgL3Zhci93d3cvaHRtbApzdWRvIGNob3duIGJhZHIgLgpzdWRvIG12IGluZGV4Lm5naW54LWRlYmlhbi5odG1sIGluZGV4Lmh0bWwub2xkCnN1ZG8gZWNobyAiZnVjayBvZmYgZnJvbSBteSBzaXRlLiBCYWRyIG9uIEF6dXJlIiA+IGluZGV4Lmh0bWwKc3VkbyBzeXN0ZW1jdGwgcmVzdGFydCBuZ2lueAo="
-    }
+   }
 SETTINGS
-}
+}*/
