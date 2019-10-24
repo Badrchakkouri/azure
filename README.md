@@ -55,3 +55,4 @@ One more thing, If I want to remove all the resources from Azure, it as simple a
 this will exactly do the opposite of `terraform apply` and remove everything I have built.
 
 ![Screenshot](hello_azure.PNG)
+
