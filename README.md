@@ -1,7 +1,7 @@
 # Building resources on Azure with Terraform
 ## building a VM with nginx server and a customized web page
 
-In this project I will be using terraform to setup an infrastructure in Azure to host a VM with nginx web server serving
+In this example I will be using terraform to setup an infrastructure in Azure to host a VM with nginx web server serving
 a custom web page on port 8080.
 
 # Terraform infrastructure as code
@@ -23,7 +23,7 @@ This is something I will be doing while building the VM instance. In fact cloud 
 possible to run startup scripts that run while creating the instance. Shell scripts can then be used to install packages and
 make some changes in the configuration. 
 
-In this project I will be using script `script.sh` to install nginx and change its default listening port to 8080 then
+In this example I will be using script `script.sh` to install nginx and change its default listening port to 8080 then
 change the default index.html to a customized one.
 
 One special thing about using startup scripts in Azure is that it is required to encode the script in base64. There are
