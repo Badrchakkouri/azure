@@ -1,12 +1,13 @@
 # Building resources on Azure with Terraform
+
 ## building a VM with nginx server and a customized web page
 
 In this example I will be using terraform to setup an infrastructure in Azure to host a VM with nginx web server serving
 a custom web page on port 8080.
 
-# Terraform infrastructure as code
+## Terraform IaC for Azure
 
-The code includes 4 terraform files:
+The code includes 4 Terraform files:
 
 `provider.tf` specifies that terraform has to use Azure as a cloud provider to build the resources via (Azure Resource Manager). I have included comments in the file for more understanding.
 
@@ -17,7 +18,7 @@ in the code for better understanding.
 
 `output.tf` specifies the value I want to print out after the completion of the build, the public IP of the instance in this case.
 
-# Installing nginx and the custom web page
+## Installing nginx and the custom web page
 
 This is something I will be doing while building the VM instance. In fact cloud providers like Azure, AWS and GCP make it
 possible to run startup scripts that run while creating the instance. Shell scripts can then be used to install packages and
@@ -29,7 +30,7 @@ change the default index.html to a customized one.
 One special thing about using startup scripts in Azure is that it is required to encode the script in base64. There are
 plenty of tools that perform this, for test purpose I will use the online encoder https://www.base64encode.org/
 
-# Build the infrastructure with Terraform 
+## Building the infrastructure with Terraform 
 
 First thing to do is to initialize the working directory where terraform code is located with the command `terraform init`,
 this will enable terraform to prepare the directory as a terraform workspace and get the necessary plugins to talk with the cloud provider, for my case
@@ -46,7 +47,7 @@ results.
 Last step is to go ahead and run `terraform apply` and issue a `yes` when prompted and Voila! Terraform will do its magic
 and outputs the public ip of the created instance!
 
-# Test the results
+## Testing the results
 
 after terraform finishes the work, I copy the printed out public IP X.X.X.X and access http://X.X.X.X:8080
 and as expected it shows my custom web page!
